@@ -1,0 +1,107 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta http-equiv="Content-Style-Type" content="text/css">
+  <title></title>
+  <meta name="Generator" content="Cocoa HTML Writer">
+  <meta name="CocoaVersion" content="2487.6">
+  <style type="text/css">
+    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica}
+    p.p2 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica; min-height: 14.0px}
+  </style>
+</head>
+<body>
+<p class="p1">&lt;!DOCTYPE html&gt;</p>
+<p class="p1">&lt;html&gt;</p>
+<p class="p1">&lt;head&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;style&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>body {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>display: flex;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>justify-content: center;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>align-items: center;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>height: 100vh;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>background-color: #f0f0f0;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>.bubble {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>width: 100px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>height: 100px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>border-radius: 50%;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>position: absolute;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>cursor: pointer;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>#bubble1 {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>background-color: blue;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>left: 30%;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>#bubble2 {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>background-color: green;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>left: 60%;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>.hovered {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>background-color: yellow !important;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/style&gt;</p>
+<p class="p1">&lt;/head&gt;</p>
+<p class="p1">&lt;body&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div id="bubble1" class="bubble"&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div id="bubble2" class="bubble"&gt;&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;audio id="sound1" src="https://drive.google.com/file/d/10TU1IDtF_9moFrodAtBRFg7HrUVYMv5p/view?usp=sharing" preload="auto"&gt;&lt;/audio&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;audio id="sound2" src="https://drive.google.com/file/d/10TU1IDtF_9moFrodAtBRFg7HrUVYMv5p/view?usp=sharing" preload="auto"&gt;&lt;/audio&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;script&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>const bubble1 = document.getElementById('bubble1');</p>
+<p class="p1"><span class="Apple-converted-space">        </span>const bubble2 = document.getElementById('bubble2');</p>
+<p class="p1"><span class="Apple-converted-space">        </span>const sound1 = document.getElementById('sound1');</p>
+<p class="p1"><span class="Apple-converted-space">        </span>const sound2 = document.getElementById('sound2');</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>const correctBubble = Math.random() &lt; 0.5 ? bubble1 : bubble2;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>function playSound(sound) {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>sound.currentTime = 0; // Restart the sound</p>
+<p class="p1"><span class="Apple-converted-space">            </span>sound.play();</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>bubble1.addEventListener('mouseenter', () =&gt; {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>playSound(sound1);</p>
+<p class="p1"><span class="Apple-converted-space">            </span>bubble1.classList.add('hovered');</p>
+<p class="p1"><span class="Apple-converted-space">        </span>});</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>bubble1.addEventListener('mouseleave', () =&gt; {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>bubble1.classList.remove('hovered');</p>
+<p class="p1"><span class="Apple-converted-space">        </span>});</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>bubble2.addEventListener('mouseenter', () =&gt; {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>playSound(sound2);</p>
+<p class="p1"><span class="Apple-converted-space">            </span>bubble2.classList.add('hovered');</p>
+<p class="p1"><span class="Apple-converted-space">        </span>});</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>bubble2.addEventListener('mouseleave', () =&gt; {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>bubble2.classList.remove('hovered');</p>
+<p class="p1"><span class="Apple-converted-space">        </span>});</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>bubble1.addEventListener('click', () =&gt; {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>if (bubble1 === correctBubble) {</p>
+<p class="p1"><span class="Apple-converted-space">                </span>alert('Correct! You clicked the right bubble!');</p>
+<p class="p1"><span class="Apple-converted-space">            </span>} else {</p>
+<p class="p1"><span class="Apple-converted-space">                </span>alert('Wrong bubble. Try again.');</p>
+<p class="p1"><span class="Apple-converted-space">            </span>}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>});</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>bubble2.addEventListener('click', () =&gt; {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>if (bubble2 === correctBubble) {</p>
+<p class="p1"><span class="Apple-converted-space">                </span>alert('Correct! You clicked the right bubble!');</p>
+<p class="p1"><span class="Apple-converted-space">            </span>} else {</p>
+<p class="p1"><span class="Apple-converted-space">                </span>alert('Wrong bubble. Try again.');</p>
+<p class="p1"><span class="Apple-converted-space">            </span>}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>});</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/script&gt;</p>
+<p class="p1">&lt;/body&gt;</p>
+<p class="p1">&lt;/html&gt;</p>
+</body>
+</html>
