@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f0f0f0;
+        }
+
+        .bubble {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            position: absolute;
+            cursor: pointer;
+        }
+
+        #bubble1 {
+            background-color: blue;
+            left: 30%;
+        }
+
+        #bubble2 {
+            background-color: green;
+            left: 60%;
+        }
+
+        .hovered {
+            background-color: yellow !important;
+        }
+    </style>
+</head>
+<body>
+    <div id="bubble1" class="bubble"></div>
+    <div id="bubble2" class="bubble"></div>
+
+    <audio id="sound1" src="sound1.mp3" preload="auto"></audio>
+    <audio id="sound2" src="sound2.mp3" preload="auto"></audio>
+
+    <script>
+        const bubble1 = document.getElementById('bubble1');
+        const bubble2 = document.getElementById('bubble2');
+        const sound1 = document.getElementById('sound1');
+        const sound2 = document.getElementById('sound2');
+
+        const correctBubble = Math.random() < 0.5 ? bubble1 : bubble2;
+
+        function playSound(sound) {
+            sound.currentTime = 0; // Restart the sound
+            sound.play();
+        }
+
+        bubble1.addEventListener('mouseenter', () => {
+            playSound(sound1);
+            bubble1.classList.add('hovered');
+        });
+
+        bubble1.addEventListener('mouseleave', () => {
+            bubble1.classList.remove('hovered');
+        });
+
+        bubble2.addEventListener('mouseenter', () => {
+            playSound(sound2);
+            bubble2.classList.add('hovered');
+        });
+
+        bubble2.addEventListener('mouseleave', () => {
+            bubble2.classList.remove('hovered');
+        });
+
+        bubble1.addEventListener('click', () => {
+            if (bubble1 === correctBubble) {
+                alert('Correct! You clicked the right bubble!');
+            } else {
+                alert('Wrong bubble. Try again.');
+            }
+        });
+
+        bubble2.addEventListener('click', () => {
+            if (bubble2 === correctBubble) {
+                alert('Correct! You clicked the right bubble!');
+            } else {
+                alert('Wrong bubble. Try again.');
+            }
+        });
+    </script>
+</body>
+</html>
